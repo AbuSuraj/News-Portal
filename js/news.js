@@ -77,5 +77,10 @@ const displayNewsDetail = (categories) => {
     NewsDetailContainer.appendChild(newsDiv);
   });
 };
-
+const categoryDetail = (id) => {
+  //   console.log(id);
+  fetch(`https://openapi.programming-hero.com/api/news/${id}`)
+    .then((res) => res.json())
+    .then((data) => displayCategoryDetail(data.data));
+};
 loadCategories();
