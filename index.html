@@ -39,7 +39,9 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="fs-4 nav-link" href="blog.html">Blogs</a>
+                <a target="_blank" class="fs-4 nav-link" href="blog.html"
+                  >Blogs</a
+                >
               </li>
             </ul>
           </div>
@@ -48,7 +50,7 @@
       <hr />
     </header>
     <!-- news details  -->
-    <main class="container">
+    <main class="container my-5">
       <div>
         <nav
           id="category-container"
@@ -57,8 +59,17 @@
       </div>
       <!-- no of news  -->
       <h4 id="no-of-news" class="mt-3"></h4>
-      <section>
+      <section class="mb-5">
         <div id="news-detail-container"></div>
+      </section>
+
+      <!-- Spinner   -->
+      <section>
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border m-5 d-none" role="status" id="spinner">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </section>
       <!-- category detail news  -->
       <section>
@@ -73,6 +84,12 @@
         </div>
       </section>
     </main>
+
+    <!-- footer  -->
+    <footer class="text-center text-white fixed-bottom bg-dark mt-5">
+      <p>© Copyright 2022 News Barohal-News-Portal</p>
+    </footer>
+
     <!-- script  -->
     <script src="js/news.js"></script>
     <script

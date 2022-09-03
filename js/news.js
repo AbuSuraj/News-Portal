@@ -23,6 +23,9 @@ const displayCategories = (categories) => {
 
 const NewsDetail = (id, categoryName) => {
   //   console.log(id);
+  const spinner = document.getElementById("spinner");
+  spinner.classList.remove("d-none");
+
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
     .then((data) => displayNewsDetail(data.data, categoryName));
@@ -35,7 +38,7 @@ const displayNewsDetail = (categories, categoryName) => {
   NewsDetailContainer.innerHTML = "";
   categories.forEach((category) => {
     const newsDiv = document.createElement("div");
-    newsDiv.classList.add("mt-5");
+    newsDiv.classList.add("my-5");
     // console.log(category.author.name);
     newsDiv.innerHTML = `
     
@@ -80,6 +83,7 @@ const displayNewsDetail = (categories, categoryName) => {
     `;
     NewsDetailContainer.appendChild(newsDiv);
   });
+  spinner.classList.add("d-none");
 };
 const categoryDetail = (id) => {
   //   console.log(id);
