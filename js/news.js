@@ -5,7 +5,7 @@ const loadCategories = () => {
     .then((data) => displayCategories(data.data.news_category));
 };
 const displayCategories = (categories) => {
-  console.log(categories);
+  //   console.log(categories);
   const categoriesContainer = document.getElementById("category-container");
   categories.forEach((category) => {
     const li = document.createElement("span");
@@ -15,17 +15,67 @@ const displayCategories = (categories) => {
     //   categoriesContainer.innerHTML = categories[0].category_name;
 
     li.innerHTML = `
-<a href="#" onclick="NewsDetail(${category.category_id})"  class="link-dark text-decoration-none">${category.category_name} </a>
+<a href="#" onclick="NewsDetail('${category.category_id}')"  class="link-dark text-decoration-none">${category.category_name} </a>
 `;
     categoriesContainer.appendChild(li);
   });
 };
 
 const NewsDetail = (id) => {
-  console.log(id);
-  fetch("https://openapi.programming-hero.com/api/news/category/{category_id}")
+  //   console.log(id);
+  fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
-    .then((data) => displayNewsDetail(data));
+    .then((data) => displayNewsDetail(data.data));
 };
-const displayNewsDetail = (data) => {};
+const displayNewsDetail = (categories) => {
+  console.log(categories);
+  const NewsDetailContainer = document.getElementById("news-detail-container");
+  NewsDetailContainer.innerHTML = "";
+  categories.forEach((category) => {
+    const newsDiv = document.createElement("div");
+    console.log(category.author.name);
+    newsDiv.innerHTML = `
+    <div class="card mb-3" >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${
+        category.image_url
+      }" class="img-fluid rounded-start p-1" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${category.title}</h5>
+        <p class="card-text">${category.details.slice(0, 200)}...</p>
+        <div>
+        <img class="rounded-circle" style="width: 50px; height: 50px;" src="${
+          category.author.img
+        }">
+        <div class="d-flex justify-content-between"><h6>${
+          category.author.name == null || category.author.name == ""
+            ? "Not Available"
+            : category.author.name
+        }</h6>
+        <p>${
+          category.author.published_date == null
+            ? "No date"
+            : category.author.published_date
+        }</p>
+        
+        <p><i class="fa-solid fa-eye"></i> ${
+          category.total_view == null ? 0 : category.total_view
+        }</p>
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal"   onclick="categoryDetail('${
+          category._id
+        }')" class="btn btn-warning">Details</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    `;
+    NewsDetailContainer.appendChild(newsDiv);
+  });
+};
+
 loadCategories();
