@@ -9,11 +9,6 @@ const displayCategories = (categories) => {
   const categoriesContainer = document.getElementById("category-container");
   categories.forEach((category) => {
     const li = document.createElement("span");
-    //   navDiv.classList.add('navbar');
-    //   navDiv.classList.add('navbar-dark');
-    //   navDiv.classList.add('bg-primary');
-    //   categoriesContainer.innerHTML = categories[0].category_name;
-
     li.innerHTML = `
 <a href="#" onclick="NewsDetail('${category.category_id}', '${category.category_name}')"  class="link-dark text-decoration-none">${category.category_name} </a>
 `;
@@ -36,6 +31,10 @@ const displayNewsDetail = (categories, categoryName) => {
   noOfNews.innerText = `${categories.length} items found for category ${categoryName}`;
   const NewsDetailContainer = document.getElementById("news-detail-container");
   NewsDetailContainer.innerHTML = "";
+  categories.sort((a, b) => {
+    return b.total_view - a.total_view;
+  });
+
   categories.forEach((category) => {
     const newsDiv = document.createElement("div");
     newsDiv.classList.add("my-5");
