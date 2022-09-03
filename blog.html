@@ -16,11 +16,19 @@
       src="https://kit.fontawesome.com/f9bb7aad00.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      body {
+        background-color: #e0ffff;
+      }
+    </style>
   </head>
   <body>
     <!-- navbar  -->
     <header class="container mt-3">
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav
+        class="navbar navbar-expand-lg rounded"
+        style="background-color: #b0c4de"
+      >
         <div class="container-fluid">
           <div class="container-fluid">
             <span class="fs-3 navbar-brand mb-0 h1"
@@ -47,10 +55,10 @@
     <!-- acordian  -->
     <main class="container">
       <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
+        <div class="accordion-item shadow">
           <h2 class="accordion-header" id="flush-headingOne">
             <button
-              class="accordion-button collapsed fw-bold fs-3 bg-light"
+              class="accordion-button collapsed fw-bold py-2 my-3 rounded fs-3 bg-info"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
@@ -110,10 +118,10 @@
             </div>
           </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item shadow">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button
-              class="accordion-button collapsed fw-bold fs-3 bg-light"
+              class="accordion-button collapsed fw-bold fs-3 my-3 rounded bg-info"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo"
@@ -163,10 +171,10 @@
             </div>
           </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item shadow">
           <h2 class="accordion-header" id="flush-headingThree">
             <button
-              class="accordion-button collapsed fw-bold fs-3 bg-light"
+              class="accordion-button my-3 rounded collapsed fw-bold fs-3 bg-info"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree"
@@ -201,14 +209,10 @@
       </div>
     </main>
     <!-- foooter  -->
-    <footer class="">
-      <div
-       class="text-center p-3"
-       style="background-color: rgba(0, 0, 0, 0.2)"
-       >
-    © 2022 Copyright:
-   
-  </div>
+    <!-- footer  -->
+    <footer class="text-center text-white fixed-bottom p-3 bg-dark mt-5">
+      <div>© Copyright 2022 News Barohal-News-Portal</div>
+    </footer>
     <!-- script  -->
     <script src="js/news.js"></script>
     <script

@@ -1,8 +1,12 @@
 // Nav catergories
 const loadCategories = () => {
+  NewsDetail("08");
   fetch("https://openapi.programming-hero.com/api/news/categories")
     .then((res) => res.json())
-    .then((data) => displayCategories(data.data.news_category));
+    .then((data) => displayCategories(data.data.news_category))
+    .catch((err) => {
+      console.log(err);
+    });
 };
 const displayCategories = (categories) => {
   //   console.log(categories);
@@ -18,17 +22,35 @@ const displayCategories = (categories) => {
 
 const NewsDetail = (id, categoryName) => {
   //   console.log(id);
+
   const spinner = document.getElementById("spinner");
   spinner.classList.remove("d-none");
+  if (categoryName == undefined) {
+    fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
+      .then((res) => res.json())
+      .then((data) => displayNewsDetail(data.data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
-    .then((data) => displayNewsDetail(data.data, categoryName));
+    .then((data) => displayNewsDetail(data.data, categoryName))
+    .catch((err) => {
+      console.log(err);
+    });
 };
 const displayNewsDetail = (categories, categoryName) => {
-  console.log(categories);
+  // console.log(categories, categoryName);
+
   const noOfNews = document.getElementById("no-of-news");
-  noOfNews.innerText = `${categories.length} items found for category ${categoryName}`;
+  if (categoryName == undefined) {
+    noOfNews.classList.add("d-none");
+  } else {
+    noOfNews.classList.remove("d-none");
+    noOfNews.innerText = `${categories.length} items found for ${categoryName}`;
+  }
   const NewsDetailContainer = document.getElementById("news-detail-container");
   NewsDetailContainer.innerHTML = "";
   categories.sort((a, b) => {
@@ -38,6 +60,7 @@ const displayNewsDetail = (categories, categoryName) => {
   categories.forEach((category) => {
     const newsDiv = document.createElement("div");
     newsDiv.classList.add("my-5");
+    newsDiv.classList.add("shadow");
     // console.log(category.author.name);
     newsDiv.innerHTML = `
     
@@ -51,7 +74,7 @@ const displayNewsDetail = (categories, categoryName) => {
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${category.title}</h5>
-        <p class="card-text">${category.details.slice(0, 200)}...</p>
+        <p class="card-text">${category.details.slice(0, 300)}...</p>
         <div>
         <img class="rounded-circle" style="width: 50px; height: 50px;" src="${
           category.author.img
@@ -64,7 +87,7 @@ const displayNewsDetail = (categories, categoryName) => {
         <p>${
           category.author.published_date == null
             ? "No date"
-            : category.author.published_date
+            : category.author.published_date.slice(0, 10)
         }</p>
         
         <p><i class="fa-solid fa-eye"></i> ${
@@ -72,7 +95,7 @@ const displayNewsDetail = (categories, categoryName) => {
         }</p>
         <button data-bs-toggle="modal" data-bs-target="#exampleModal"   onclick="categoryDetail('${
           category._id
-        }')" class="btn btn-warning">Details</button>
+        }')" class="btn btn-warning fs-5 fw-semibold">Details</button>
         </div>
         </div>
       </div>
@@ -88,7 +111,10 @@ const categoryDetail = (id) => {
   //   console.log(id);
   fetch(`https://openapi.programming-hero.com/api/news/${id}`)
     .then((res) => res.json())
-    .then((data) => displayCategoryDetail(data.data));
+    .then((data) => displayCategoryDetail(data.data))
+    .catch((err) => {
+      console.log(err);
+    });
 };
 const displayCategoryDetail = (category) => {
   //   console.log(category[0].details);
@@ -97,7 +123,7 @@ const displayCategoryDetail = (category) => {
   const categoryDiv = document.createElement("div");
   categoryDiv.classList.add("modal-content");
   categoryDiv.innerHTML = `
-    <div class="modal-header">
+    <div class="modal-header ">
           <h4 class="modal-title" id="exampleModalLabel">${
             category[0].title
           }'</h4>
@@ -106,7 +132,7 @@ const displayCategoryDetail = (category) => {
         <img src="${category[0].image_url}" class="img-fluid" alt="...">
         
            <p class="card-text">
-          ${category[0].details.slice(0, 200)}
+          ${category[0].details}
        </p>
        <div class="d-flex justify-content-between"><h6>${
          category[0].author.name == null || category[0].author.name == ""
@@ -116,7 +142,7 @@ const displayCategoryDetail = (category) => {
         <p>${
           category[0].author.published_date == null
             ? "NO date Available"
-            : category[0].author.published_date
+            : category[0].author.published_date.slice(0, 10)
         }</p>
         
         <p><i class="fa-solid fa-eye"></i> ${
