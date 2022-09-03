@@ -83,4 +83,40 @@ const categoryDetail = (id) => {
     .then((res) => res.json())
     .then((data) => displayCategoryDetail(data.data));
 };
+const displayCategoryDetail = (category) => {
+  //   console.log(category[0].details);
+  const categoryDeailContainer = document.getElementById("category-detail");
+  categoryDeailContainer.innerHTML = "";
+  const categoryDiv = document.createElement("div");
+  categoryDiv.classList.add("modal-content");
+  categoryDiv.innerHTML = `
+    <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">${
+            category[0].title
+          }'</h4>
+        </div>
+        <div class="modal-body">
+        <img src="${category[0].image_url}" class="img-fluid" alt="...">
+        
+           <p class="card-text">
+          ${category[0].details.slice(0, 200)}
+       </p>
+       <div class="d-flex justify-content-between"><h6>${
+         category[0].author.name
+       }</h6>
+        <p>${category[0].author.published_date}</p>
+        
+        <p><i class="fa-solid fa-eye"></i> ${
+          category[0].total_view == null ? 0 : category[0].total_view
+        }</p>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+    `;
+  categoryDeailContainer.appendChild(categoryDiv);
+};
 loadCategories();
