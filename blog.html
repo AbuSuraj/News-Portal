@@ -45,156 +45,161 @@
       <hr />
     </header>
     <!-- acordian  -->
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button
-            class="accordion-button collapsed fw-bold fs-3 bg-light"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne"
-            aria-expanded="false"
-            aria-controls="flush-collapseOne"
+    <main class="container">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed fw-bold fs-3 bg-light"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              Difference Between Var, Let, and Const?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample"
           >
-            Difference Between Var, Let, and Const?
-          </button>
-        </h2>
-        <div
-          id="flush-collapseOne"
-          class="accordion-collapse collapse"
-          aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div class="accordion-body">
-            <ol>
-              <li class="fs-4">
-                <h6 class="fs-4">var</h6>
-                <p class="fs-5">
-                  The scope of a var variable is functional scope.
-                </p>
-                <h6 class="fs-4">Let</h6>
-                <p class="fs-5">The scope of a let variable is block scope.</p>
-                <h6 class="fs-4">Const</h6>
-                <p class="fs-5">
-                  The scope of a const variable is block scope.
-                </p>
-              </li>
-              <li class="fs-4">
-                <h6 class="fs-4">var</h6>
-                <p class="fs-5">
-                  It can be updated and re-declared into the scope.
-                </p>
-                <h6 class="fs-4">Let</h6>
-                <p class="fs-5">
-                  It can be updated but cannot be re-declared into the scope.
-                </p>
-                <h6 class="fs-4">Const</h6>
-                <p class="fs-5">
-                  It cannot be updated or re-declared into the scope.
-                </p>
-              </li>
-              <li class="fs-4">
-                <h6 class="fs-4">var</h6>
-                <p class="fs-5">It can be declared without initialization.</p>
-                <h6 class="fs-4">Let</h6>
-                <p class="fs-5">It can be declared without initialization.</p>
-                <h6 class="fs-4">Const</h6>
-                <p class="fs-5">
-                  It cannot be declared without initialization..
-                </p>
-              </li>
-            </ol>
+            <div class="accordion-body">
+              <ol>
+                <li class="fs-4">
+                  <h6 class="fs-4">var</h6>
+                  <p class="fs-5">
+                    The scope of a var variable is functional scope.
+                  </p>
+                  <h6 class="fs-4">Let</h6>
+                  <p class="fs-5">
+                    The scope of a let variable is block scope.
+                  </p>
+                  <h6 class="fs-4">Const</h6>
+                  <p class="fs-5">
+                    The scope of a const variable is block scope.
+                  </p>
+                </li>
+                <li class="fs-4">
+                  <h6 class="fs-4">var</h6>
+                  <p class="fs-5">
+                    It can be updated and re-declared into the scope.
+                  </p>
+                  <h6 class="fs-4">Let</h6>
+                  <p class="fs-5">
+                    It can be updated but cannot be re-declared into the scope.
+                  </p>
+                  <h6 class="fs-4">Const</h6>
+                  <p class="fs-5">
+                    It cannot be updated or re-declared into the scope.
+                  </p>
+                </li>
+                <li class="fs-4">
+                  <h6 class="fs-4">var</h6>
+                  <p class="fs-5">It can be declared without initialization.</p>
+                  <h6 class="fs-4">Let</h6>
+                  <p class="fs-5">It can be declared without initialization.</p>
+                  <h6 class="fs-4">Const</h6>
+                  <p class="fs-5">
+                    It cannot be declared without initialization..
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+              class="accordion-button collapsed fw-bold fs-3 bg-light"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              Difference Between Arrow Function and Regular Function?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <ol>
+                <li class="fs-4">
+                  <h6 class="fs-4">Regular function</h6>
+                  <p class="fs-5">
+                    In a traditional function, there is an arguments local
+                    variable. If the number of arguments to our function is
+                    dynamic, using arguments allows us to easily do things like
+                    calculating the maximum number of passed arguments.
+                  </p>
+                  <h6 class="fs-4">Arrow function</h6>
+                  <p class="fs-5">
+                    In the arrow function, there are no arguments, if we access
+                    arguments in the arrow function will return the arguments of
+                    the closest non-arrow parent function.
+                  </p>
+                </li>
+                <li class="fs-4">
+                  <h6 class="fs-4">Regular function</h6>
+                  <p class="fs-5">
+                    In a traditional function, its internal this value is
+                    dynamic, it depends on how the function is invoked
+                  </p>
+                  <h6 class="fs-4">Arrow function</h6>
+                  <p class="fs-5">
+                    In the arrow function, there are no this, if we access this
+                    in the arrow function it will return the this of the closest
+                    non-arrow parent function.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button
+              class="accordion-button collapsed fw-bold fs-3 bg-light"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
+              Why js Use Template String?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <h6 class="fs-4">Template String:</h6>
+              <p class="fs-5">
+                Template strings are a powerful feature of modern JavaScript
+                released in ES6. It lets us insert/interpolate variables and
+                expressions into strings without needing to concatenate like in
+                older versions of JavaScript. It allows us to create strings
+                that are complex and contain dynamic elements. Another great
+                thing that comes with template strings are tags. Tags are
+                functions that take a string and the decomposed parts of the
+                string as parameters and are great for converting strings to
+                different entities.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button
-            class="accordion-button collapsed fw-bold fs-3 bg-light"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo"
-            aria-expanded="false"
-            aria-controls="flush-collapseTwo"
-          >
-            Difference Between Arrow Function and Regular Function?
-          </button>
-        </h2>
-        <div
-          id="flush-collapseTwo"
-          class="accordion-collapse collapse"
-          aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div class="accordion-body">
-            <ol>
-              <li class="fs-4">
-                <h6 class="fs-4">Regular function</h6>
-                <p class="fs-5">
-                  In a traditional function, there is an arguments local
-                  variable. If the number of arguments to our function is
-                  dynamic, using arguments allows us to easily do things like
-                  calculating the maximum number of passed arguments.
-                </p>
-                <h6 class="fs-4">Arrow function</h6>
-                <p class="fs-5">
-                  In the arrow function, there are no arguments, if we access
-                  arguments in the arrow function will return the arguments of
-                  the closest non-arrow parent function.
-                </p>
-              </li>
-              <li class="fs-4">
-                <h6 class="fs-4">Regular function</h6>
-                <p class="fs-5">
-                  In a traditional function, its internal this value is dynamic,
-                  it depends on how the function is invoked
-                </p>
-                <h6 class="fs-4">Arrow function</h6>
-                <p class="fs-5">
-                  In the arrow function, there are no this, if we access this in
-                  the arrow function it will return the this of the closest
-                  non-arrow parent function.
-                </p>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button
-            class="accordion-button collapsed fw-bold fs-3 bg-light"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree"
-            aria-expanded="false"
-            aria-controls="flush-collapseThree"
-          >
-            Why js Use Template String?
-          </button>
-        </h2>
-        <div
-          id="flush-collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div class="accordion-body">
-            <h6 class="fs-4">Template String:</h6>
-            <p class="fs-5">
-              Template strings are a powerful feature of modern JavaScript
-              released in ES6. It lets us insert/interpolate variables and
-              expressions into strings without needing to concatenate like in
-              older versions of JavaScript. It allows us to create strings that
-              are complex and contain dynamic elements. Another great thing that
-              comes with template strings are tags. Tags are functions that take
-              a string and the decomposed parts of the string as parameters and
-              are great for converting strings to different entities.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </main>
     <!-- script  -->
     <script src="js/news.js"></script>
     <script

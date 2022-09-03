@@ -15,26 +15,30 @@ const displayCategories = (categories) => {
     //   categoriesContainer.innerHTML = categories[0].category_name;
 
     li.innerHTML = `
-<a href="#" onclick="NewsDetail('${category.category_id}')"  class="link-dark text-decoration-none">${category.category_name} </a>
+<a href="#" onclick="NewsDetail('${category.category_id}', '${category.category_name}')"  class="link-dark text-decoration-none">${category.category_name} </a>
 `;
     categoriesContainer.appendChild(li);
   });
 };
 
-const NewsDetail = (id) => {
+const NewsDetail = (id, categoryName) => {
   //   console.log(id);
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
-    .then((data) => displayNewsDetail(data.data));
+    .then((data) => displayNewsDetail(data.data, categoryName));
 };
-const displayNewsDetail = (categories) => {
+const displayNewsDetail = (categories, categoryName) => {
   console.log(categories);
+  const noOfNews = document.getElementById("no-of-news");
+  noOfNews.innerText = `${categories.length} items found for category ${categoryName}`;
   const NewsDetailContainer = document.getElementById("news-detail-container");
   NewsDetailContainer.innerHTML = "";
   categories.forEach((category) => {
     const newsDiv = document.createElement("div");
-    console.log(category.author.name);
+    newsDiv.classList.add("mt-5");
+    // console.log(category.author.name);
     newsDiv.innerHTML = `
+    
     <div class="card mb-3" >
   <div class="row g-0">
     <div class="col-md-4">
