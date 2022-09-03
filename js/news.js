@@ -102,9 +102,15 @@ const displayCategoryDetail = (category) => {
           ${category[0].details.slice(0, 200)}
        </p>
        <div class="d-flex justify-content-between"><h6>${
-         category[0].author.name
+         category[0].author.name == null || category[0].author.name == ""
+           ? "Not Available"
+           : category[0].author.name
        }</h6>
-        <p>${category[0].author.published_date}</p>
+        <p>${
+          category[0].author.published_date == null
+            ? "NO date Available"
+            : category[0].author.published_date
+        }</p>
         
         <p><i class="fa-solid fa-eye"></i> ${
           category[0].total_view == null ? 0 : category[0].total_view
